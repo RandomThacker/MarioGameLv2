@@ -27,7 +27,7 @@ html,body{
     align-items: center;
     font-size: 14vh;
     color: wheat;
-    visibility: visible;
+    visibility: hidden;
 }
 
 .startGame img {
@@ -36,20 +36,37 @@ html,body{
     margin-bottom: 10px;
 }
 
-.startGame p {
-    font-size: 40px;
+.end{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    font-size: 50px;
     text-align: left;
-    color: white;
-    /* margin-top: 10px; */
-}
-
-.startGame .touch{
-    color: #ffcd10;
+    color: wheat;
     display: none;
 }
 
-.startGame .start{
-    color: #ffcd10;
+.startGame p {
+    /* position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 20;
+    font-size: 50px;
+    text-align: left;
+    color: wheat;
+    display: none;
+}
+
+.start{
+    display: none;
+}
+
+.startGame .touch{
+    color: wheat;
+    display: none;
 }
 
 .gameOver {
@@ -200,7 +217,11 @@ html,body{
 }
 
 .marioExit {
-    animation: marioExit 6s linear infinite;
+    animation: marioExit 5s linear;
+}
+
+.marioEnter {
+    animation: marioEnter 3s linear;
 }
 
 @keyframes marioJump {
@@ -214,6 +235,19 @@ html,body{
 
     100% {
         bottom: 15vw;
+    }
+}
+
+@keyframes marioEnter {
+    0% {
+        bottom: 15vw;
+        left: -10vw;
+    }
+
+    100% {
+        bottom: 15vw;
+        left: 10vw;
+
     }
 }
 
@@ -290,7 +324,7 @@ html,body{
     }
     
     .mario {
-        left: 3vw;
+        left: 10vw;
     }
 
     .scoreDiv img {
@@ -303,6 +337,17 @@ html,body{
 
     .startGame .start{
         display: none;
+    }
+
+    .scoreDiv {
+        right: 150px;
+        margin: 15px 0px 0px 0px;
+        gap: 2px;
+        visibility: hidden;
+    }
+
+    .end{
+        font-size: 3vw;
     }
 
 }

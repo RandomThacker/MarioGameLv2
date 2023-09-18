@@ -16,6 +16,13 @@ audioGameOver = new Audio("GameOver.mp3")
 audioJump = new Audio("jump.mp3")
 stageClear = new Audio("stage_clear.wav")
 
+setTimeout(()=>{
+    marioImage.src = "stillMario.png"
+},3000)
+
+setTimeout(()=>{
+    startGame.style.visibility = "visible"
+},2000)
 
 function gameStart(){
     marioImage.src = "mario1.gif"
@@ -23,6 +30,8 @@ function gameStart(){
     startGame.style.display = "none";
     scoreDiv.style.visibility = "visible"
     dragon.style.animationName = "dragon";
+    mario.classList.remove("marioEnter")
+
     audioNormal.play()
 }
 
@@ -88,7 +97,7 @@ setInterval(() => {
     //-----------Increase score and speed----------------
     else if (dx < 0 && cross) {
 
-        if(score ==900){
+        if(score ==1100){
             updateScore()
             dragon.style.display = "none"
             // dragon.style.animationName = "none";
@@ -97,10 +106,10 @@ setInterval(() => {
             mario.classList.add("marioExit")
             audioNormal.pause()
             audioSpeed.pause()
-
             stageClear.play()
             setTimeout (()=>{
-            window.location.href = "../MarioGameLv2/index.html";
+            document.querySelector(".end").style.display = "block"
+            mario.style.display = "none"
             },5000)
         }
 
